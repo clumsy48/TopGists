@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app='mapp'>
+    <head>
+    	<title>TopGit</title>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <script src="main.js"></script>
+      <style>
+        p {
+           font-size: 18px;
+           align-items: center;
+          }
+        #header { 
+           background:#d3d3d3;
+           font-style:inherit; 
+           font-size: 45px;
+           text-align: center;
+          }
+        h3 {
+           color: gray;
+  
+           }
+        button{
+           color:green;
+           }
+        #actualdata{
+            background: #daff33;
+           }
+        #footer{
+             margin: :auto;
+             position: fixed;
+             bottom: 0;
+             background: #33ff64;
+             width: 100%;
+           }
+      </style>
+    	
+    </head>
+    <body ng-controller='mainCntrl'>
+    <div id="header">Top Gists</div> 
+    <hr>
+    <h3>Search by Language</h3>
+    <div id="inputs">
+        <input type="text" ng-model=languageName placeholder="example - java,python">
+    <button ng-click='fetchByLanguage(1)' >Fetch</button>
+        <h3>Search Repositoties</h3
+>    <input type="text" ng-model=repositoryName placeholder="example - android">
+    <button ng-click='fetch(1)'>Fetch</button>
+    </div>
+
+    <h2>{{totalrepo}}</h2>
+    <button ng-click='prev_page()'>prev</button><p>{{page}}</p><button ng-click='next_page()'>next</button>
+      <div id="actualdata">
+        <ul><p ng-repeat='x in  data'>full_name=>{{x.full_name}}
+          <br>url=><a href="{{x.html_url}}">{{x.html_url}}</a>
+          <br>description=>{{x.description}}
+          </p>
+        </ul>
+
+        <ul><p ng-repeat='x in  datal'>full_name=>{{x.full_name}}
+          <br>url=><a href="{{x.html_url}}">{{x.html_url}}</a>
+          <br>description=>{{x.description}}
+          <br>language=>{{x.language}}</p>
+        </ul>
+      </div>
+      <div id="footer" >
+      
+      <p align="center"> 
+        Results are sorted by rating in desreasing order of stars. Only 100 per page
+      </p>
+      </div>
+    </body>
+</html>
+
